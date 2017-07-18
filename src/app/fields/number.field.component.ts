@@ -1,8 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import {FieldComponent} from "./field.component";
 
 @Component({
-    selector: 'form-button',
     template: `
     <div
       class="row"
@@ -10,7 +10,7 @@ import { FormGroup } from '@angular/forms';
       >
       {{ config.label }}
       <input
-        type="text"
+        type="number"
         [formControlName]="config.name"
         class="form-control"
         />
@@ -18,13 +18,5 @@ import { FormGroup } from '@angular/forms';
   `
 })
 
-export class WidgetTextComponent implements OnInit {
-    ngOnInit():void {
-        console.log(this.parentGroup)
-    }
-    @Input() config:any = {
-        "label": "Mon label",
-        "disabled": false
-    };
-    @Input() parentGroup: FormGroup;
+export class NumberFieldComponent extends FieldComponent {
 }

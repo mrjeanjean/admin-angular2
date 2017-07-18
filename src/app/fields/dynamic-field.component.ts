@@ -1,33 +1,33 @@
 import { Directive, Input, OnInit, ComponentFactoryResolver, ViewContainerRef } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import {WidgetTextComponent} from "./widget.text.component";
+import {FieldsRegisteryService} from "./fields-registery.services";
+import {FieldComponent} from "./field.component";
+import {FieldConfig} from "./field-config.interface";
+import {FieldsDefautRegistery} from "./fields-default.service";
+
 
 @Directive({
     selector: '[dynamic-field]',
 })
-
 export class DynamicFieldsDirective implements OnInit {
 
     @Input() group: FormGroup;
-
-    @Input() config:any = {
-        "label": "Mon label",
-        "disabled": false
-    };
+    @Input() config:FieldConfig;
 
     constructor(
         private componentFactoryResolver:ComponentFactoryResolver,
-        private container: ViewContainerRef
+        private container: ViewContainerRef,
+        private fieldsRegistery:FieldsRegisteryService,
+        private fieldsDefautRegistery:FieldsDefautRegistery
     ) { }
 
     ngOnInit():void {
-        let componentFactory = this.componentFactoryResolver.resolveComponentFactory(WidgetTextComponent);
+        let componentFactory = this.componentFactoryResolver.resolveComponentFactory(this.fieldsRegistery.getField(this.config.type));
 
         let component = this.container.createComponent(componentFactory);
 
-        component.instance.config = this.config;
-        component.instance.parentGroup = this.group;
-
+        (<FieldComponent>component.instance).config = this.config;
+        (<FieldComponent>component.instance).parentGroup = this.group;
     }
 
 }
