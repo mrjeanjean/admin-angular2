@@ -1,5 +1,5 @@
 import { Component, OnInit, ComponentFactoryResolver, ViewContainerRef } from '@angular/core';
-import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormControl, FormBuilder, Validators, ValidatorFn } from '@angular/forms';
 import {WidgetTextComponent} from "./fields/widget.text.component";
 
 @Component({
@@ -101,14 +101,12 @@ export class AppComponent implements OnInit {
     save(value, isValid:boolean) {
         this.submitted = true; // set form submit to true
 
-        // check if model is valid
-        // if valid, call API to save customer
-        console.log("IS Valid ? : ", value, isValid);
+        console.log("Is form valid ? : ", value, isValid);
     }
 
     addField() {
         let field_name = "text_" + Math.floor(Math.random() * 99999);
-        this.myForm.addControl(field_name, this.fb.control(null, Validators.required));
+        this.myForm.addControl(field_name, new FormControl(null, Validators.required as ValidatorFn));
         this.fields.push({
             name: field_name,
             config: {

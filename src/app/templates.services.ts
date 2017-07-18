@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs/Subject';
-import { Prop } from "./prop.interface";
+import {Field} from "./fields/field.interface";
 
 @Injectable()
 export class TemplatesService {
@@ -14,7 +14,7 @@ export class TemplatesService {
     private _templateChanged = new Subject();
     public categoriesChanged = this._templateChanged.asObservable();
 
-    public addProperty(property:Prop, name:string) {
+    public addField(property:Field, name:string) {
         this.properties[name] = property;
         this._templateChanged.next(
             this.getTemplate()
