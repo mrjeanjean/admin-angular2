@@ -1,16 +1,15 @@
+import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { WidgetTextComponent } from './fields/widget.text.component'
+import { DynamicFieldsDirective } from "./fields/dynamic-field.component"
 
-import { AppComponent } from './app.component';
+import { AppComponent }   from './app.component';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    imports:      [ BrowserModule, ReactiveFormsModule, FormsModule ],
+    declarations: [ AppComponent, WidgetTextComponent, DynamicFieldsDirective ],
+    bootstrap:    [ AppComponent ]
 })
+
 export class AppModule { }
