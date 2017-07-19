@@ -43,6 +43,46 @@ export class FormService {
                 }
             ]
         },
+        'page-1':{
+            fields:[
+                {
+                    name: "title",
+                    config: {
+                        label: "Title",
+                        name: "title",
+                        type: "text",
+                        value: "Page d'accueil de mon blog"
+                    }
+                },
+                {
+                    name: "slug",
+                    config: {
+                        label: "URL slug",
+                        name: "slug",
+                        type: "text",
+                        value: "page-accueil-blog"
+                    }
+                },
+                {
+                    name: "content",
+                    config: {
+                        label: "",
+                        name: "content",
+                        type: "textarea",
+                        value: "Le contenu de mon blog. Passionnant et enrichissant pour tout ceux qui se passionnent pour les blogs. Avec du contenu par millier et des images cocaces."
+                    }
+                },
+                {
+                    name: "image",
+                    config: {
+                        label: "Image",
+                        name: "image",
+                        type: "text",
+                        value: "mon-image-accueil.png"
+                    }
+                }
+            ]
+        },
         'contact':{
             fields:[
                 {

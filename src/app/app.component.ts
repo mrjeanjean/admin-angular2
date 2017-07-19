@@ -9,7 +9,7 @@ import { Component } from '@angular/core';
             <div class="col-md-8">
                 <dynamic-form></dynamic-form>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-3 col-md-offset-1">
                 <form-actions></form-actions>
             </div>
         </div>

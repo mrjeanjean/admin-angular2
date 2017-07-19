@@ -6,6 +6,7 @@ import { FormService } from "./form.service";
     selector: 'dynamic-form',
     template: `<form [formGroup]="form" novalidate (ngSubmit)="save(form.value, form.valid)">,
         <div class="row">
+        <p><strong>Form demo and validation</strong></p>
             <div class="alert" [ngClass]=" form.valid ? 'alert-success' : 'alert-danger'">Form valid: {{ form.valid ? 'true' : 'false' }}</div>
         </div>
 
