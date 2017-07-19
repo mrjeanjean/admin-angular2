@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs/Subject';
+import { Validators } from '@angular/forms'
+import {Subject} from "rxjs/Subject";
 
 @Injectable()
-export class TemplatesService {
+export class FormService {
     private fields = [];
 
     private templates = {
@@ -57,7 +58,8 @@ export class TemplatesService {
                     config: {
                         label: "Last Name",
                         name: "lastname",
-                        type: "text"
+                        type: "text",
+                        validation: [Validators.required]
                     }
                 },
                 {
@@ -65,7 +67,8 @@ export class TemplatesService {
                     config: {
                         label: "Address",
                         name: "address",
-                        type: "textarea"
+                        type: "textarea",
+                        validation: [Validators.required]
                     }
                 },
                 {
@@ -73,7 +76,8 @@ export class TemplatesService {
                     config: {
                         label: 'Zip',
                         name: 'zip',
-                        type: 'text'
+                        type: 'text',
+                        validation: [Validators.required]
                     }
                 },
                 {
@@ -81,7 +85,8 @@ export class TemplatesService {
                     config: {
                         label: 'City',
                         name: 'city',
-                        type: 'text'
+                        type: 'text',
+                        validation: [Validators.required]
                     }
                 },
                 {
@@ -96,12 +101,14 @@ export class TemplatesService {
         }
     }
 
+    private _formChanged = new Subject();
+    public formChanged = this._formChanged.asObservable();
     private _templateChanged = new Subject();
     public templateChanged = this._templateChanged.asObservable();
 
     public addField(field:any) {
         this.fields.push(field);
-        this._templateChanged.next(
+        this._formChanged.next(
             this.fields
         );
     }
@@ -111,7 +118,7 @@ export class TemplatesService {
     }
 
     public loadTemplate(type:string):void {
-        this.fields = this.templates[type].fields;
+        this.fields = this.templates[type].fields.slice();
         this._templateChanged.next(
             this.fields
         )

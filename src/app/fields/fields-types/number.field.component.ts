@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import {FieldComponent} from "./field.component";
+import {FieldComponent} from "./../field.component";
 
 @Component({
     template: `

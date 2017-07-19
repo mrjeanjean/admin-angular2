@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {FieldComponent} from "./field.component";
+import {FieldComponent} from "./../field.component";
 
 @Component({
     template:`<div

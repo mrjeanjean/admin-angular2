@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {TemplatesService} from "./templates.services";
+import {FormService} from "./form.service";
 import {Validators} from '@angular/forms';
 
 @Component({
@@ -8,12 +8,12 @@ import {Validators} from '@angular/forms';
 })
 export class FormActionsComponent implements OnInit{
 
-    constructor(private templateService:TemplatesService){}
+    constructor(private formService:FormService){}
     ngOnInit():void {}
 
     addField(type:string){
         let field_name = type + "_" + Math.floor(Math.random() * 99999);
-        this.templateService.addField({
+        this.formService.addField({
             name: field_name,
             config: {
                 label: "Label of " + field_name,
@@ -25,10 +25,10 @@ export class FormActionsComponent implements OnInit{
     }
 
     loadTemplate(type:string){
-        this.templateService.loadTemplate(type);
+        this.formService.loadTemplate(type);
     }
 
     reset(){
-        this.templateService.reset();
+        this.formService.reset();
     }
 }

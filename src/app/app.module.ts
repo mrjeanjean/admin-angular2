@@ -1,17 +1,17 @@
 import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { FieldsRegisteryService } from "./fields/fields-registery.services";
+import { FieldsRegisteryService } from "./fields/fields-registery.service";
 import { FieldsDefautRegistery } from "./fields/fields-default.service";
 import { DynamicFieldsDirective } from "./fields/dynamic-field.component"
 
 import { AppComponent }   from './app.component';
-import { TextFieldComponent } from "./fields/text.field.component";
-import { NumberFieldComponent } from "./fields/number.field.component";
-import { TextareaComponent } from "./fields/textarea.field.component";
-import { DynamicFormComponent } from "./fields/dynamic-form";
-import {FormActionsComponent} from "./form-actions.component";
-import {TemplatesService} from "./templates.services";
+import { TextFieldComponent } from "./fields/fields-types/text.field.component";
+import { NumberFieldComponent } from "./fields/fields-types/number.field.component";
+import { TextareaComponent } from "./fields/fields-types/textarea.field.component";
+import { DynamicFormComponent } from "./forms/dynamic-form.component";
+import { FormActionsComponent } from "./forms/form-actions.component";
+import { FormService } from "./forms/form.service";
 
 @NgModule({
     imports: [BrowserModule, ReactiveFormsModule, FormsModule],
@@ -30,7 +30,7 @@ import {TemplatesService} from "./templates.services";
         TextareaComponent
     ],
     bootstrap: [AppComponent],
-    providers: [FieldsRegisteryService, FieldsDefautRegistery, TemplatesService],
+    providers: [FieldsRegisteryService, FieldsDefautRegistery, FormService],
 })
 
 export class AppModule {

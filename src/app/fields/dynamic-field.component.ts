@@ -1,6 +1,6 @@
 import { Directive, Input, OnInit, ComponentFactoryResolver, ViewContainerRef } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import {FieldsRegisteryService} from "./fields-registery.services";
+import {FieldsRegisteryService} from "./fields-registery.service";
 import {FieldComponent} from "./field.component";
 import {FieldConfig} from "./field-config.interface";
 import {FieldsDefautRegistery} from "./fields-default.service";
