@@ -6,7 +6,7 @@
   "apps": [
     {
       "root": "src",
-      "outDir": "dist",
+      "outDir": "../angular-silex-cms/web/js/app",
       "assets": [
         "assets",
         "favicon.ico"

@@ -19,7 +19,7 @@ export class FormActionsComponent implements OnInit{
                 label: "Label of " + field_name,
                 disabled: false,
                 name: field_name,
-                validation: [Validators.required],
+                //validation: [Validators.required],
                 type: type
             }});
     }

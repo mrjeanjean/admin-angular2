@@ -4,15 +4,23 @@ import { Component } from '@angular/core';
     moduleId: module.id,
     styleUrls: ['./app.component.css'],
     template: `
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <ul class="nav navbar-nav">
+                <li>
+                    <a routerLink="/pages" routerLinkActive="active">Home</a>
+                </li>
+                 <li>
+                    <a routerLink="/page/qui-sommes-nous" routerLinkActive="active">Qui sommes-nous</a>
+                </li>
+                <li>
+                    <a routerLink="/template" routerLinkActive="active">Ajouter page</a>
+                </li>
+            </ul>
+      </div>
+    </nav>
     <div class="container">
-        <div class="row">
-            <div class="col-md-8">
-                <dynamic-form></dynamic-form>
-            </div>
-            <div class="col-md-3 col-md-offset-1">
-                <form-actions></form-actions>
-            </div>
-        </div>
+        <router-outlet></router-outlet>
     </div>
     `,
 })

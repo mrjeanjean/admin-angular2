@@ -4,4 +4,5 @@ export abstract class FieldComponent {
 
     public parentGroup: FormGroup;
     public config:any;
+    public name;
 }
